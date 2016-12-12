@@ -15,7 +15,7 @@ import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 
-public class TestFragment extends Fragment{
+public class ViewFragment extends Fragment{
 	private TextView tv;
 	private View root;
 	private View view;

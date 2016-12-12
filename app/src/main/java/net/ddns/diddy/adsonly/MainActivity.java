@@ -19,7 +19,8 @@ import net.ddns.diddy.adsonly.view.CardView.OnCardClickListener;
 
 public class MainActivity extends FragmentActivity implements OnCardClickListener{
 	List<String> list;
-	private TestFragment frag;
+	private ViewFragment frag;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class MainActivity extends FragmentActivity implements OnCardClickListene
 		cardView.setAdapter(adapter);
 		
 		FragmentManager manager = getSupportFragmentManager();
-		frag = new TestFragment();
+		frag = new ViewFragment();
 		manager.beginTransaction().add(R.id.contentView, frag).commit();
 	}
 	
@@ -48,8 +49,6 @@ public class MainActivity extends FragmentActivity implements OnCardClickListene
 		bundle.putString("text", list.get(position%list.size()));
 		frag.show(view,bundle);
 	}
-	
-	
 	
 	private List<String> initData() {
 		list = new ArrayList<String>();
@@ -75,17 +74,15 @@ public class MainActivity extends FragmentActivity implements OnCardClickListene
 		}
 		
 		@Override
-		protected View getCardView(int position,
-				View convertView, ViewGroup parent) {
+		protected View getCardView(int position, View convertView, ViewGroup parent) {
 			if(convertView == null) {
 				LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
 				convertView = inflater.inflate(R.layout.item_layout, parent, false);
 			}
 			TextView tv = (TextView) convertView.findViewById(R.id.textView1);
-			String text = getItem(position%list.size());
+			String text = getItem(position % list.size());
 			tv.setText(text);
 			return convertView;
 		}
 	}
-
 }
