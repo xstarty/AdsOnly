@@ -7,9 +7,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,7 @@ public class MainActivity extends FragmentActivity implements OnCardClickListene
 	private void initUI() {
 		CardView cardView = (CardView) findViewById(R.id.cardView1);
 		cardView.setOnCardClickListener(this);
-		cardView.setItemSpace(Utils.convertDpToPixelInt(this, 20));
+		cardView.setItemSpace(Utils.convertDpToPixelInt(this, 30));
 		
 		MyCardAdapter adapter = new MyCardAdapter(this);
 		adapter.addAll(initData());
@@ -67,21 +69,35 @@ public class MainActivity extends FragmentActivity implements OnCardClickListene
 		public MyCardAdapter(Context context) {
 			super(context);
 		}
-		
+
 		@Override
 		public int getCount() {
 			return Integer.MAX_VALUE;
 		}
-		
+
 		@Override
 		protected View getCardView(int position, View convertView, ViewGroup parent) {
 			if(convertView == null) {
 				LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
 				convertView = inflater.inflate(R.layout.item_layout, parent, false);
 			}
-			TextView tv = (TextView) convertView.findViewById(R.id.textView1);
-			String text = getItem(position % list.size());
-			tv.setText(text);
+
+			/////////////////
+
+			// 設定卡片大小
+			ImageView tv = (ImageView) convertView.findViewById(R.id.imageView_CardItem);
+
+			DisplayMetrics dm = new DisplayMetrics();
+			getWindowManager().getDefaultDisplay().getMetrics(dm);
+			int ScreenWidth = dm.widthPixels;   //螢幕的寬
+			int ScreenHeight = dm.heightPixels / 2;  //螢幕的高
+
+			ViewGroup.LayoutParams params = tv.getLayoutParams();
+			params.width = ScreenWidth;
+			params.height = ScreenHeight;
+			tv.setLayoutParams(params);
+
+
 			return convertView;
 		}
 	}

@@ -22,8 +22,8 @@ import com.nineoldandroids.view.ViewPropertyAnimator;
  * 
  */
 public class CardView extends FrameLayout {
-	private static final int ITEM_SPACE = 40;
-	private static final int DEF_MAX_VISIBLE = 4;
+	private static final int ITEM_SPACE = 30;
+	private static final int DEF_MAX_VISIBLE = 5;
 
 	private int mMaxVisible = DEF_MAX_VISIBLE;
 	private int itemSpace = ITEM_SPACE;

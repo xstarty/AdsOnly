@@ -56,7 +56,7 @@ public class ViewFragment extends Fragment{
 	public void show(final View view,Bundle bundle){
 		view.setEnabled(false);
 		this.view = view;
-		String text = bundle.getString("text");
+		String text = bundle.getString("strItem_text");
 		tv.setText(text);
 		ViewHelper.setRotationY(view, 0);
 		ViewHelper.setRotationY(root, -90);
