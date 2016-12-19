@@ -17,7 +17,7 @@ public class TestFragPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int arg0) {
 		Bundle bundle = new Bundle();
-		bundle.putInt(Constant.KEY, Constant.images[arg0%getCount()]);
+		bundle.putInt(Constant.KEY, Constant.images[arg0 % getCount()]);
 		Fragment frag = new TestFragment();
 		frag.setArguments(bundle);
 		return frag;

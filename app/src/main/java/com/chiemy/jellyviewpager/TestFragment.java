@@ -16,7 +16,7 @@ public class TestFragment extends Fragment {
 	boolean visible = true;
 	@Override
 	public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.frag_layout, container, false);
+		View rootView = inflater.inflate(R.layout.frag_layout_jellyviewpager, container, false);
 		initUI(rootView);
 		return rootView;
 	}

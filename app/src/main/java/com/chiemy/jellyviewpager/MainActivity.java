@@ -1,11 +1,9 @@
 package com.chiemy.jellyviewpager;
 
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
-import android.widget.Toast;
 
 import net.ddns.diddy.adsonly.R;
 import com.chiemy.jellyviewpager.widget.JellyViewPager;
@@ -16,7 +14,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main_jellyviewpager);
 		pager = (JellyViewPager) findViewById(R.id.myViewPager1);
 		//pager.setAdapter(new TestPagerAdapter(this));
 		pager.setAdapter(new TestFragPagerAdapter(getSupportFragmentManager()));

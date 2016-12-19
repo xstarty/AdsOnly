@@ -28,7 +28,7 @@ public class TestPagerAdapter extends PagerAdapter{
 	
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-		View view = inflater.inflate(R.layout.frag_layout, null);
+		View view = inflater.inflate(R.layout.frag_layout_jellyviewpager, null);
 		container.addView(view);
 		return view;
 	}
